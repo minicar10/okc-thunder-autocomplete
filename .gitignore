@@ -41,46 +41,52 @@ htmlcov/
 .tox/
 .nox/
 .coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
+.DS_Store
+~$*
 
-# Translations
-*.mo
-*.pot
+# compiled output
+frontend/dist/*.js
+frontend/dist/*.html
+frontend/dist/*.css
+frontend/dist/*.ico
+frontend/dist/*.map
+frontend/tmp
+frontend/dist/
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+# dependencies
+frontend/node_modules
+frontend/bower_components
+backend/venv/
 
-# Flask stuff:
-instance/
-.webassets-cache
+# IDEs and editors
+frontend/.idea
+frontend/.vscode
+frontend/.project
+frontend/.classpath
+frontend/.c9/
+frontend/*.launch
+frontend/.settings/
 
-# Scrapy stuff:
-.scrapy
+# misc
+frontend/.sass-cache
+frontend/connect.lock
+frontend/coverage/*
+frontend/libpeerconnection.log
+frontend/npm-debug.log
+frontend/testem.log
+frontend/typings
 
-# Sphinx documentation
-docs/_build/
+# e2e
+frontend/e2e/*.js
+frontend/e2e/*.map
 
-# PyBuilder
-.pybuilder/
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
+# System Files
+frontend/.DS_Store
+backend/.DS_Store
+frontend/Thumbs.db
+desktop.ini
+.AppleDouble
+._*
 
 # pyenv
 #   For a library or package, you might want to ignore these files since the code is

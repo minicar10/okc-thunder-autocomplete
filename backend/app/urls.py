@@ -13,9 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import re_path
+from django.urls import path
 from app.views import players
 
 urlpatterns = [
-    re_path(r'^api/v1/playerSummary/(?P<playerID>[0-9]+)$', players.PlayerSummary.as_view(), name='player_summary'),
+    path('api/v1/playerSummary/<int:player_id>/', players.PlayerSummary.as_view(), name='player_summary'),
 ]
+
+
+
+
+

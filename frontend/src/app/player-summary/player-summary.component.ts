@@ -1,38 +1,48 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  OnDestroy,
-  OnInit,
-  ViewEncapsulation
-} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {untilDestroyed, UntilDestroy} from '@ngneat/until-destroy';
-import {PlayersService} from '../_services/players.service';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { PlayerSummary } from './player-summary.model';
 
-@UntilDestroy()
 @Component({
-  selector: 'player-summary-component',
+  selector: 'app-player-summary',
   templateUrl: './player-summary.component.html',
   styleUrls: ['./player-summary.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
-export class PlayerSummaryComponent implements OnInit, OnDestroy {
+export class PlayerSummaryComponent implements OnInit {
+  playerSummary: PlayerSummary | null = null;
+  playerId: number = 1;
+  lastAttemptedPlayerId: number | null = null;
+  playerNotFound: boolean = false;
 
-  constructor(
-    protected activatedRoute: ActivatedRoute,
-    protected cdr: ChangeDetectorRef,
-    protected playersService: PlayersService,
-  ) {
-
-  }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.playersService.getPlayerSummary(1).pipe(untilDestroyed(this)).subscribe(data => {
-      console.log(data.apiResponse);
-    });
+    this.loadPlayer();
   }
 
-  ngOnDestroy() {
+  loadPlayer(): void {
+    this.lastAttemptedPlayerId = this.playerId;
+    this.fetchPlayerSummary(this.playerId);
   }
 
+  fetchPlayerSummary(playerID: number): void {
+    this.http
+      .get<PlayerSummary>(
+        `http://localhost:8000/api/v1/playerSummary/${playerID}`
+      )
+      .subscribe(
+        (data) => {
+          if (data && Object.keys(data).length > 0) {
+            this.playerSummary = data;
+            this.playerNotFound = false;
+          } else {
+            this.playerSummary = null;
+            this.playerNotFound = true;
+          }
+        },
+        (error) => {
+          this.playerSummary = null;
+          this.playerNotFound = true;
+        }
+      );
+  }
 }

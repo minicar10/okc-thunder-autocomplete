@@ -1,1 +1,73 @@
-<div class="placeholder">Place your content here!</div>
+<div class="player-selection">
+  <label for="playerId">Player ID:</label>
+  <input type="number" [(ngModel)]="playerId" id="playerId" min="1" />
+  <button (click)="loadPlayer()">Load Player</button>
+</div>
+
+<div *ngIf="!playerNotFound">
+  <div *ngIf="playerSummary">
+    <div class="player-info-header">
+      <h2>{{ playerSummary.name }}</h2>
+    </div>
+
+    <div
+      *ngIf="playerSummary.games && playerSummary.games.length > 0; else noData"
+    >
+      <div *ngFor="let game of playerSummary.games" class="game-card">
+        <h3>Game on {{ game.date }}</h3>
+        <p><strong>Starter:</strong> {{ game.isStarter ? "Yes" : "No" }}</p>
+        <p><strong>Minutes Played:</strong> {{ game.minutes }}</p>
+        <p><strong>Points:</strong> {{ game.points }}</p>
+        <p><strong>Assists:</strong> {{ game.assists }}</p>
+        <p>
+          <strong>Rebounds (Off/Def):</strong> {{ game.offensiveRebounds }} /
+          {{ game.defensiveRebounds }}
+        </p>
+        <p><strong>Steals:</strong> {{ game.steals }}</p>
+        <p><strong>Blocks:</strong> {{ game.blocks }}</p>
+        <p><strong>Turnovers:</strong> {{ game.turnovers }}</p>
+        <p>
+          <strong>Fouls (Off/Def):</strong> {{ game.offensiveFouls }} /
+          {{ game.defensiveFouls }}
+        </p>
+        <p>
+          <strong>Free Throws:</strong> {{ game.freeThrowsMade }} /
+          {{ game.freeThrowsAttempted }}
+        </p>
+        <p>
+          <strong>Two Pointers:</strong> {{ game.twoPointersMade }} /
+          {{ game.twoPointersAttempted }}
+        </p>
+        <p>
+          <strong>Three Pointers:</strong> {{ game.threePointersMade }} /
+          {{ game.threePointersAttempted }}
+        </p>
+
+        <h4 class="shot-chart-title">Shot Chart</h4>
+        <div class="court-container">
+          <div class="court-diagram">
+            <div
+              *ngFor="let shot of game.shots"
+              class="shot"
+              [style.left.%]="49.875 + (shot.locationX / 25) * 50"
+              [style.top.%]="88.4 - (shot.locationY / 23.5) * 50"
+              [class.make]="shot.isMake"
+              [class.miss]="!shot.isMake"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noData>
+      <p class="no-data-message">No data available for this player.</p>
+    </ng-template>
+  </div>
+</div>
+
+<div *ngIf="playerNotFound" class="not-found-message">
+  <p>
+    Player ID {{ lastAttemptedPlayerId }} does not exist. Please enter a valid
+    player ID.
+  </p>
+</div>
