@@ -1,11 +1,11 @@
-# 🏀 OKC Thunder Autocomplete
+#  OKC Thunder Autocomplete
 
 A full-stack web application for displaying NBA player statistics with shot chart visualizations, built using **Django REST Framework** (backend) and **Angular** (frontend).  
 This version is customized for the Oklahoma City Thunder but can be adapted for other NBA teams.
 
 ---
 
-## 📌 Features
+##  Features
 
 - **Autocomplete Search** for player names.
 - **Detailed Player Summary** view with:
@@ -16,24 +16,24 @@ This version is customized for the Oklahoma City Thunder but can be adapted for 
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
-### 🔧 Backend
+###  Backend
 - Python 3.x  
 - Django 4.x  
 - Django REST Framework  
 - SQLite (default, can be replaced with PostgreSQL)  
 
-### 🎨 Frontend
+###  Frontend
 - Angular 15+  
 - Angular Material  
 - Node.js (via NVM)  
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
-### 1️⃣ Prerequisites
+### 1. Prerequisites
 
 - **Python 3.10+**
 - **Node.js** (via [NVM for Windows](https://github.com/coreybutler/nvm-windows))  
@@ -45,7 +45,7 @@ This version is customized for the Oklahoma City Thunder but can be adapted for 
 
 ---
 
-### 2️⃣ Clone the Repository
+### 2. Clone the Repository
 
 ```
 git clone <your-repo-url>
@@ -54,9 +54,9 @@ cd okc-thunder-autocomplete
 
 ---
 
-### 3️⃣ Install Dependencies
+### 3. Install Dependencies
 
-#### 🔙 Backend (Django)
+####  Backend (Django)
 
 ```
 cd backend
@@ -67,7 +67,7 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-#### 🔜 Frontend (Angular)
+####  Frontend (Angular)
 
 ```
 cd ../frontend
@@ -77,9 +77,9 @@ npm install
 
 ---
 
-### 4️⃣ Run the Project
+###  Run the Project
 
-#### ✅ Option A — One Command Demo Script (Recommended)
+####  Option A — One Command Demo Script (Recommended)
 
 ```
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
@@ -93,7 +93,7 @@ This opens **two PowerShell windows**:
 
 ---
 
-#### 🛠 Option B — Run Manually
+####  Option B — Run Manually
 
 ```
 # Terminal 1 — Backend
@@ -111,7 +111,7 @@ npm start
 
 ---
 
-## 📡 API Endpoints
+##  API Endpoints
 
 **Example:**
 
@@ -138,25 +138,25 @@ GET /api/v1/playerSummary/1/
 
 ---
 
-## 🎯 How to Demo
+##  How to Demo
 
 1. Start the servers with \`.\demo.ps1\`
 2. Open \`http://localhost:4200\` in your browser.
 3. Search for a player (e.g., **Shai Gilgeous-Alexander**).
 4. Select a player to view:
-   - 📊 Game statistics table  
-   - 🎯 Shot chart with make/miss locations  
+   -  Game statistics table  
+   -  Shot chart with make/miss locations  
 5. For raw JSON, go to:  
    \`http://127.0.0.1:8000/api/v1/playerSummary/1/\`
 
 ---
 
-## 🧩 Customization
+## Customization
 
 To adapt for a different team:
 
-- 🐍 **Backend:** Change API data source or fixture data.
-- 🎨 **Frontend:** Update branding (logos, colors).
+-  **Backend:** Change API data source or fixture data.
+-  **Frontend:** Update branding such as colors.
 
 To add new stats:
 
@@ -165,13 +165,13 @@ To add new stats:
 
 ---
 
-## 📝 License
+##  License
 
 **MIT License** — free to use and modify for personal or commercial projects.
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Zachariah Joseph**  
 *CS Student & basketball enthusiast*
