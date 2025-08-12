@@ -1,4 +1,4 @@
-#  OKC Thunder Autocomplete
+#  OKC Thunder Statistic Viewer
 
 A full-stack web application for displaying NBA player statistics with shot chart visualizations, built using **Django REST Framework** (backend) and **Angular** (frontend).  
 This version is customized for the Oklahoma City Thunder but can be adapted for other NBA teams.
@@ -7,7 +7,6 @@ This version is customized for the Oklahoma City Thunder but can be adapted for 
 
 ##  Features
 
-- **Autocomplete Search** for player names.
 - **Detailed Player Summary** view with:
   - Game-by-game statistics (points, assists, rebounds, steals, blocks, fouls, turnovers, FG/3PT/FT stats).
   - Shot chart visualization with make/miss locations.
@@ -49,7 +48,7 @@ This version is customized for the Oklahoma City Thunder but can be adapted for 
 
 ```
 git clone <your-repo-url>
-cd okc-thunder-autocomplete
+cd okc-thunder-statistic-viewer
 ```
 
 ---
